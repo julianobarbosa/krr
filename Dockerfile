@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PATH="/app/venv/bin:$PATH"
 
-# Install system dependencies required for Poetry
+# Install system dependencies required for Python
 RUN apt-get update && \
     dpkg --add-architecture arm64
 
@@ -27,5 +27,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code
 COPY . .
 
-# Run the application using 'poetry run krr simple'
+# Run the application using 'python krr.py simple'
 CMD ["python", "krr.py", "simple"]
